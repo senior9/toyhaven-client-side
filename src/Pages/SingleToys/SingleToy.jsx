@@ -15,7 +15,7 @@ const SingleToy = ({ SingleToy }) => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title text-black">Toy Name : {toy_name}</h2>
+          <h2 className="card-title text-black">Car Name : {toy_name}</h2>
           <p className="text-black"> Price: {price}</p>
           <p className="text-black"> Rating: {rating}</p>
           <div className="card-actions justify-end">
