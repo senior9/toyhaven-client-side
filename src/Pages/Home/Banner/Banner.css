@@ -1,0 +1,17 @@
+.carousel-text {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    .carousel-item {
+        background: linear-gradient(179.4deg, rgba(12, 20, 69, 0.2) -16.9%, rgba(71, 30, 84, 0.2) 119.9%);
+      }
+      
+    /* transform: translate(-50%, -50%); */
+  }
+ 
+  .custom-button{
+    background: linear-gradient(178.1deg, rgb(60, 55, 106) 8.5%, rgb(23, 20, 69) 82.4%);
+    color: azure;
+
+  }
+  
