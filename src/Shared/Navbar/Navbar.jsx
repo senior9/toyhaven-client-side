@@ -16,7 +16,7 @@ const Navbar = () => {
           Home
         </Link>
         <Link to="/all-toys" className="btn btn-ghost text-white normal-case text-sm">
-          All Toys
+          All Car Toys
         </Link>
         <Link to="/" className="btn btn-ghost text-white normal-case text-sm">
           Add A Toy

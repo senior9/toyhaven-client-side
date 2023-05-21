@@ -1,0 +1,86 @@
+{
+    "toys": [
+      {
+        "seller": "ToyMart",
+        "toy_name": "Turbo Racer",
+        "picture": "turbo_racer.jpg",
+        "rating": 4.5,
+        "subcategory_id": 1,
+        "price": 19.99,
+        "available_quantity": 10
+      },
+      {
+        "seller": "Speedy Toys",
+        "toy_name": "Lightning Speedster",
+        "picture": "lightning_speedster.jpg",
+        "rating": 4.2,
+        "subcategory_id": 1,
+        "price": 24.99,
+        "available_quantity": 5
+      },
+      {
+        "seller": "Fast Lane Toys",
+        "toy_name": "Nitro Blaster",
+        "picture": "nitro_blaster.jpg",
+        "rating": 4.8,
+        "subcategory_id": 1,
+        "price": 29.99,
+        "available_quantity": 8
+      },
+      {
+        "seller": "Dream Cars Emporium",
+        "toy_name": "Super GT",
+        "picture": "super_gt.jpg",
+        "rating": 4.7,
+        "subcategory_id": 2,
+        "price": 39.99,
+        "available_quantity": 3
+      },
+      {
+        "seller": "Speedsters Inc.",
+        "toy_name": "Formula Racer",
+        "picture": "formula_racer.jpg",
+        "rating": 4.3,
+        "subcategory_id": 2,
+        "price": 34.99,
+        "available_quantity": 6
+      },
+      {
+        "seller": "Adrenaline Toys",
+        "toy_name": "Power Cruiser",
+        "picture": "power_cruiser.jpg",
+        "rating": 4.6,
+        "subcategory_id": 2,
+        "price": 44.99,
+        "available_quantity": 2
+      },
+      {
+        "seller": "Vintage Toys Co.",
+        "toy_name": "Classic Roadster",
+        "picture": "classic_roadster.jpg",
+        "rating": 4.4,
+        "subcategory_id": 3,
+        "price": 49.99,
+        "available_quantity": 7
+      },
+      {
+        "seller": "Retro Auto Toys",
+        "toy_name": "Vintage Convertible",
+        "picture": "vintage_convertible.jpg",
+        "rating": 4.1,
+        "subcategory_id": 3,
+        "price": 54.99,
+        "available_quantity": 4
+      },
+      {
+        "seller": "Timeless Classics",
+        "toy_name": "Antique Sedan",
+        "picture": "antique_sedan.jpg",
+        "rating": 4.9,
+        "subcategory_id": 3,
+        "price": 59.99,
+        "available_quantity": 1
+      }
+    ]
+  }
+  
