@@ -1,9 +1,10 @@
 import React from "react";
 import "./SingleToy.css"
+import { Link } from "react-router-dom";
 
 const SingleToy = ({ SingleToy }) => {
   console.log(SingleToy.picture);
-  const {toy_name,available_quantity,picture,price,rating} =SingleToy
+  const {toy_name,available_quantity,picture,price,rating,_id} =SingleToy
   return (
     <div className="">
       
@@ -19,7 +20,9 @@ const SingleToy = ({ SingleToy }) => {
           <p className="text-black"> Price: {price}</p>
           <p className="text-black"> Rating: {rating}</p>
           <div className="card-actions justify-end">
+            <Link to={`/category/${_id}`}>
             <button className="btn custom-btn btn-outline">View Details</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -8,6 +8,8 @@ import Login from "../Pages/Home/Login/Login";
 import SecondLayout from "../Layout/SecondLayout";
 import Register from "../Pages/Home/Register/Register";
 import Categories from "../Pages/Categories/Categories";
+import ToyDetails from "../Pages/Home/ToyDetails/ToyDetails";
+import AddCategory from "../Pages/Home/AddCategory/AddCategory";
 
   const router = createBrowserRouter([
     {
@@ -18,7 +20,8 @@ import Categories from "../Pages/Categories/Categories";
           path:'category',
           element:<Categories></Categories>,
           loader: ()=>fetch('http://localhost:5000/collections')
-        }
+        },
+        
       ]
     },
     {
@@ -33,6 +36,17 @@ import Categories from "../Pages/Categories/Categories";
     path: "/register",
     element: <Register></Register>
     },
+    {
+        path:'category/:id',
+        element:<ToyDetails></ToyDetails>,
+        loader: ({params})=>fetch(`http://localhost:5000/collections/${params.id}`)
+      
+    },
+    {
+      path:'addCategory/:id',
+      element:<AddCategory></AddCategory>,
+      loader: ({params})=>fetch(`http://localhost:5000/collections/${params.id}`)
+    }
     
   ]);
   export default router
