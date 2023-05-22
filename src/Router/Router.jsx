@@ -43,9 +43,9 @@ import AddCategory from "../Pages/Home/AddCategory/AddCategory";
       
     },
     {
-      path:'addCategory/:id',
+      path:'addCategory',
       element:<AddCategory></AddCategory>,
-      loader: ({params})=>fetch(`http://localhost:5000/collections/${params.id}`)
+      // loader: ({params})=>fetch(`http://localhost:5000/collections/${params.id}`)
     }
     
   ]);

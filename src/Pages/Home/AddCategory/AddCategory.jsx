@@ -4,10 +4,36 @@ import Footer from "../../../Shared/Footer/Footer";
 import "./AddCategory.css"
 
 const AddCategory = () => {
+    const handleAddToy=(event)=>{
+        event.preventDefault();
+        const form = event.target;
+
+        const seller = form.seller.value;
+        const picture = form.picture.value;
+        const toy_name = form.toy_name.value;
+        const subcategory = form.subcategory.value;
+        const available_quantity = form.available_quantity.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const description = form.description.value;
+
+        const newCarInfo = {seller,picture,toy_name,subcategory,available_quantity,price,rating,description};
+        console.log(newCarInfo);
+
+        fetch('http://localhost:5000/collections',{
+            method:'POST',
+                        headers:{
+                            'Content-Type':'application/json'
+                        },
+                        body:JSON.stringify(newCarInfo)
+        })
+        .then(res=>res.json())
+        .then(data =>console.log(data))
+    }
   return (
     <div>
       <Navbar></Navbar>
-      <form className=" container mx-auto custom-backgtound p-5">
+      <form onSubmit={handleAddToy} className=" container mx-auto custom-backgtound p-5">
         <div className="">
           <div className="flex justify-center">
             <h1 className="text-5xl text-white font-extrabold">
@@ -36,7 +62,7 @@ const AddCategory = () => {
               </label>
               <input
                 type="text"
-                name="sellerName"
+                name="seller"
                 placeholder="Enter seller name"
                 className="input input-bordered custom-bg"
               />
@@ -49,7 +75,7 @@ const AddCategory = () => {
               </label>
               <input
                 type="text"
-                name="url"
+                name="picture"
                 placeholder="car phto url"
                 className="input input-bordered custom-bg"
               />
@@ -62,7 +88,7 @@ const AddCategory = () => {
               </label>
               <input
                 type="text"
-                name="carName"
+                name="toy_name"
                 placeholder="Enter car name"
                 className="input input-bordered custom-bg"
               />
@@ -76,7 +102,7 @@ const AddCategory = () => {
               <input
                 type="text"
                 name="subcategory"
-                placeholder="sub-category"
+                placeholder="subcategory"
                 className="input input-bordered custom-bg"
               />
             </div>
@@ -88,7 +114,7 @@ const AddCategory = () => {
               </label>
               <input
                 type="text"
-                name="quantity"
+                name="available_quantity"
                 placeholder="quantity"
                 className="input input-bordered custom-bg"
               />
@@ -101,6 +127,7 @@ const AddCategory = () => {
               </label>
               <input
                 type="text"
+                name="price"
                 placeholder="price"
                 className="input input-bordered custom-bg"
               />
@@ -113,6 +140,7 @@ const AddCategory = () => {
               </label>
               <input
                 type="text"
+                name="rating"
                 placeholder="rating"
                 className="input input-bordered custom-bg"
               />
@@ -125,13 +153,14 @@ const AddCategory = () => {
               </label>
               <textarea
                 placeholder="Bio"
+                name="description"
                 className="textarea textarea-bordered textarea-xs w-full max-w-xs custom-bg"
               ></textarea>
             </div>
            
           </div>
           <div>
-                <button className="btn custom-btn btn-danger w-full mt-3 text-2xl font-semibold" type="submit">Update info</button>
+                <button className="btn custom-btn btn-danger w-full mt-3 text-2xl font-semibold" type="submit">Add  Toys</button>
             </div>
         </div>
       </form>
