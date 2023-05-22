@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "../../../Shared/Navbar/Navbar";
 import Footer from "../../../Shared/Footer/Footer";
-import "./AddCategory.css"
+import "./AddCategory.css";
+import Swal from 'sweetalert2'
 
 const AddCategory = () => {
     const handleAddToy=(event)=>{
@@ -20,7 +21,7 @@ const AddCategory = () => {
         const newCarInfo = {seller,picture,toy_name,subcategory,available_quantity,price,rating,description};
         console.log(newCarInfo);
 
-        fetch('http://localhost:5000/collections',{
+        fetch('http://localhost:5000/new-collections',{
             method:'POST',
                         headers:{
                             'Content-Type':'application/json'
@@ -28,7 +29,18 @@ const AddCategory = () => {
                         body:JSON.stringify(newCarInfo)
         })
         .then(res=>res.json())
-        .then(data =>console.log(data))
+        .then(data =>{
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Add Toy Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Come Down'
+                  })
+            }
+        })
+
     }
   return (
     <div>
