@@ -15,10 +15,10 @@ const Navbar = () => {
         <Link to="/" className="btn btn-ghost text-white normal-case text-sm">
           Home
         </Link>
-        <Link to="/all-toys" className="btn btn-ghost text-white normal-case text-sm">
+        <Link to="/all-car" className="btn btn-ghost text-white normal-case text-sm">
           All Car Toys
         </Link>
-        <Link to="addCategory" className="btn btn-ghost text-white normal-case text-sm">
+        <Link to="add-toy" className="btn btn-ghost text-white normal-case text-sm">
           Add A Toy
         </Link>
         <Link to="addCategory" className="btn btn-ghost text-white normal-case text-sm">

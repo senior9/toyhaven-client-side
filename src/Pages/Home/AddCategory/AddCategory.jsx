@@ -64,6 +64,8 @@ const AddCategory = () => {
                 name="email"
                 placeholder="Seller email"
                 className="input input-bordered custom-bg"
+                readOnly
+                required
               />
             </div>
             <div className="form-control">
@@ -77,6 +79,7 @@ const AddCategory = () => {
                 name="seller"
                 placeholder="Enter seller name"
                 className="input input-bordered custom-bg"
+                required
               />
             </div>
             <div className="form-control">
@@ -90,6 +93,7 @@ const AddCategory = () => {
                 name="picture"
                 placeholder="car phto url"
                 className="input input-bordered custom-bg"
+                required
               />
             </div>
             <div className="form-control">
@@ -103,6 +107,7 @@ const AddCategory = () => {
                 name="toy_name"
                 placeholder="Enter car name"
                 className="input input-bordered custom-bg"
+                required
               />
             </div>
             <div className="form-control">
@@ -116,6 +121,7 @@ const AddCategory = () => {
                 name="subcategory"
                 placeholder="subcategory"
                 className="input input-bordered custom-bg"
+                required
               />
             </div>
             <div className="form-control">
@@ -129,6 +135,7 @@ const AddCategory = () => {
                 name="available_quantity"
                 placeholder="quantity"
                 className="input input-bordered custom-bg"
+                required
               />
             </div>
             <div className="form-control">
@@ -142,6 +149,7 @@ const AddCategory = () => {
                 name="price"
                 placeholder="price"
                 className="input input-bordered custom-bg"
+                required
               />
             </div>
             <div className="form-control">
@@ -155,6 +163,7 @@ const AddCategory = () => {
                 name="rating"
                 placeholder="rating"
                 className="input input-bordered custom-bg"
+                required
               />
             </div>
             <div>

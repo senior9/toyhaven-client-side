@@ -10,6 +10,7 @@ import Register from "../Pages/Home/Register/Register";
 import Categories from "../Pages/Categories/Categories";
 import ToyDetails from "../Pages/Home/ToyDetails/ToyDetails";
 import AddCategory from "../Pages/Home/AddCategory/AddCategory";
+import AllCar from "../Pages/AllCar/AllCar";
 
   const router = createBrowserRouter([
     {
@@ -43,9 +44,14 @@ import AddCategory from "../Pages/Home/AddCategory/AddCategory";
       
     },
     {
-      path:'addCategory',
+      path:'add-toy',
       element:<AddCategory></AddCategory>,
-      // loader: ({params})=>fetch(`http://localhost:5000/collections/${params.id}`)
+      
+    },
+    {
+      path:'all-car',
+      element:<AllCar></AllCar>,
+      loader: ()=>fetch('http://localhost:5000/new-collections')
     }
     
   ]);
