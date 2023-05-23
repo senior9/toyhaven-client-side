@@ -1,0 +1,56 @@
+.wrapper{
+    background:#fff;
+    width:40em;
+    padding:2em 2em 4em;
+    margin:0 auto;
+    border-radius:1em;
+    box-shadow:0 0 1em rgb(100,100,100);
+    color:darkgreen;
+  }
+  .item{
+    border-top:solid 3px darkgreen;
+    border-bottom:solid 1px;
+    margin-bottom:1em;
+    color:rgb(200,200,200);
+  }
+  .item h2{
+    diaplay:inline;
+    margin:;
+  }
+  .item .description{
+    clear:both;
+    overflow:hidden;
+    max-height:0;
+    transition:0.5s ease;
+    color:green;
+  }
+  .item input[type=checkbox]{
+    display:none;
+  }
+  .item input[type=checkbox] ~ label{
+    display:block;
+    float:right;
+    width:2em;
+    height:2em;
+    background:darkgreen;
+    color:#fff;
+    border-radius:0  0 50% 50%;
+    text-align:center;
+    line-height:2;
+    font-weight:bold;
+    cursor:pointer;
+  }
+  .item input[type=checkbox] ~ label:hover{
+    background:darkgreen;
+  }
+  .item input[type=checkbox]:checked ~ label{
+    background:green;
+  }
+  .item input[type=checkbox]:checked ~ h2{
+    color:green;
+  }
+  .item input[type=checkbox]:checked ~ .description{
+    max-height:200em;
+    transition:0.5s ease;
+  
+  }

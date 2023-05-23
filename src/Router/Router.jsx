@@ -14,6 +14,7 @@ import AllCar from "../Pages/AllCar/AllCar";
 import MyToys from "../Pages/MyToys/MyToys";
 import Private from "../Shared/Private/Private";
 import UpdatedToys from "../Pages/MyToys/UpdatedToys/UpdatedToys";
+import Blog from "../Pages/Blog/Blog";
 
   const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ import UpdatedToys from "../Pages/MyToys/UpdatedToys/UpdatedToys";
       path:'my-toys/:id',
       element:<Private><UpdatedToys></UpdatedToys></Private>,
       loader:({params})=>fetch(`http://localhost:5000/my-collections/${params.id}`)
+    },
+    {
+      path:'blog',
+      element:<Blog></Blog>
     }
   ]);
   export default router
