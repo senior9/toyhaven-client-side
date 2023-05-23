@@ -14,8 +14,8 @@
     color:rgb(200,200,200);
   }
   .item h2{
-    diaplay:inline;
-    margin:;
+    display:inline;
+    
   }
   .item .description{
     clear:both;
