@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { authProvider } from "../../AuthProvider/AuthProvider";
-import { Link, json, useNavigate } from "react-router-dom";
+import { Link, json, useLoaderData, useNavigate } from "react-router-dom";
 import Footer from "../../Shared/Footer/Footer";
 import Navbar from "../../Shared/Navbar/Navbar";
 import Swal from "sweetalert2";
@@ -9,6 +9,7 @@ import MyCollectionsToys from "../MyCollectionsToys/MyCollectionsToys";
 const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   const { user } = useContext(authProvider);
+
 
   const url = `http://localhost:5000/my-collections?email=${user.email}`;
   useEffect(() => {
@@ -43,40 +44,7 @@ const MyToys = () => {
     });
 } 
 
-    // Update Toys
-  const handleUpdateToys = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "This action cannot be undone",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Yes",
-      cancelButtonText: "No",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:5000/my-collections/${id}`, {
-          method: "PATCH",
-          headers:{
-            'content-type': "application/json"
-          },
-          body:JSON.stringify({status:"confirm"})
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            if (data.modifiedCount > 0) {
-              const remainingToys = myToys.filter((t) => t._id !== id);
-              const upadtedToys=myToys.find(t => t._id === id);
-              const newToys = [upadtedToys,...remainingToys];
-              setMyToys(newToys)
-            }
-          });
-      }
-    });
-
-
-
-  };
+   
 
   return (
     <div>
@@ -104,7 +72,7 @@ const MyToys = () => {
                   key={singleToysDetail._id}
                   singleToysDetail={singleToysDetail}
                   handleDelete={handleDelete}
-                  handleUpdateToys={handleUpdateToys}
+                 
                 ></MyCollectionsToys>
               ))}
             </tbody>

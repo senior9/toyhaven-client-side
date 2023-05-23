@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MyCollectionsToys = ({ singleToysDetail, handleDelete,handleUpdateToys }) => {
+const MyCollectionsToys = ({ singleToysDetail, handleDelete }) => {
     console.log(singleToysDetail);
   return (
     
@@ -44,7 +44,7 @@ const MyCollectionsToys = ({ singleToysDetail, handleDelete,handleUpdateToys }) 
         </th>
         <th className="custom-bg text-center">
           <Link to={`/my-toys/${singleToysDetail._id}`}>
-            <button onClick={()=>handleUpdateToys(singleToysDetail._id)} className="btn custom-btn btn-info btn-xs">Update</button>
+            <button  className="btn custom-btn btn-info btn-xs">Edit</button>
           </Link>
         </th>
         <th className="custom-bg text-center">

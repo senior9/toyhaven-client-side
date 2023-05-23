@@ -59,11 +59,12 @@ import UpdatedToys from "../Pages/MyToys/UpdatedToys/UpdatedToys";
     {
       path:'my-toys',
       element:<Private><MyToys></MyToys></Private>,
+      // loader: ()=>fetch('http://localhost:5000/my-collections')
       
     },
     {
       path:'my-toys/:id',
-      element:<UpdatedToys></UpdatedToys>,
+      element:<Private><UpdatedToys></UpdatedToys></Private>,
       loader:({params})=>fetch(`http://localhost:5000/my-collections/${params.id}`)
     }
   ]);

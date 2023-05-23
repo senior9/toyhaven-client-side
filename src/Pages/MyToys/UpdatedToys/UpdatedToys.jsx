@@ -5,9 +5,9 @@ import Footer from '../../../Shared/Footer/Footer';
 import { authProvider } from '../../../AuthProvider/AuthProvider';
 
 const UpdatedToys = () => {
-    const updatedData = useLoaderData();
+    const data = useLoaderData();
     const {user,loading}= useContext(authProvider)
-    console.log(updatedData)
+    console.log(data._id)
     if(user){
         loading
     }
@@ -15,19 +15,30 @@ const UpdatedToys = () => {
         event.preventDefault();
         const form = event.target;
 
-        const seller = form.seller.value;
-        
-        const picture = form.picture.value;
-        const toy_name = form.toy_name.value;
-        const subcategory = form.subcategory.value;
         const available_quantity = form.available_quantity.value;
         const price = form.price.value;
-        const rating = form.rating.value;
         const description = form.description.value;
-        let email = user?.email;
-        const newCarInfo = {seller,picture,toy_name,subcategory,available_quantity,price,rating,description,email};
-        console.log(newCarInfo);
-
+        const updateCarInfo = {available_quantity,price,description};
+        // console.log(newCarInfo);
+        fetch(`http://localhost:5000/my-collections/${data._id}`,{
+          method:'PUT',
+                      headers:{
+                          'Content-Type':'application/json'
+                      },
+                      body:JSON.stringify(updateCarInfo)
+      })
+      .then(res=>res.json())
+      .then(data =>{
+          console.log(data)
+          if(data.modifiedCount>0){
+              Swal.fire({
+                  title: 'Success!',
+                  text: 'Car upDate Successfully',
+                  icon: 'success',
+                  confirmButtonText: 'Come Down'
+                })
+          }
+      })
 
     }
 
@@ -44,65 +55,7 @@ const UpdatedToys = () => {
             </h1>
           </div>
           <div className="grid grid-col-1 md:grid-cols-2 items-center gap-5">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-yellow-50 text-2xl font-bold">
-                  Seller Email
-                </span>
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Seller email"
-                className="input input-bordered custom-bg"
-                defaultValue={user.email}
-                readOnly
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-yellow-50 text-2xl font-bold">
-                  User/Seller Name
-                </span>
-              </label>
-              <input
-                type="text"
-                name="seller"
-                placeholder="Enter seller name"
-                className="input input-bordered custom-bg"
-                defaultValue={user.displayName}
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-yellow-50 text-2xl font-bold">
-                  Car Photo URl
-                </span>
-              </label>
-              <input
-                type="text"
-                name="picture"
-                placeholder="car phto url"
-                className="input input-bordered custom-bg"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-yellow-50 text-2xl font-bold">
-                  Car Name
-                </span>
-              </label>
-              <input
-                type="text"
-                name="toy_name"
-                placeholder="Enter car name"
-                className="input input-bordered custom-bg"
-                required
-              />
-            </div>
+           
         
             <div className="form-control">
               <label className="label">
@@ -148,7 +101,7 @@ const UpdatedToys = () => {
            
           </div>
           <div>
-                <button className="btn custom-btn btn-danger w-full mt-3 text-2xl font-semibold" type="submit">Update  Toys</button>
+                <input type="submit" value="Update" className='btn custom-btn btn-danger' />
             </div>
         </div>
       </form>
