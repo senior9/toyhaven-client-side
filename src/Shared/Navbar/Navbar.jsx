@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import { authProvider } from "../../AuthProvider/AuthProvider";
@@ -14,7 +14,12 @@ const Navbar = () => {
       .then((result) => {})
       .catch((err) => console.log(err.message));
   };
-  // const renderTooltip = () => <Tooltip id="tooltip">{displayName}</Tooltip>;
+  const navigate=useNavigate();
+  const handleNavigate =()=>{
+      navigate('/')
+  }
+
+
   return (
     <div className=" navbar custom-navbar">
       <div className="flex-1">
@@ -42,7 +47,7 @@ const Navbar = () => {
               Add A Toy
             </Link>
             <Link
-              to="addCategory"
+              to="my-toys" onClick={handleNavigate}
               className="btn btn-ghost text-white normal-case text-sm"
             >
               My Toy

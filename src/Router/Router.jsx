@@ -11,6 +11,7 @@ import Categories from "../Pages/Categories/Categories";
 import ToyDetails from "../Pages/Home/ToyDetails/ToyDetails";
 import AddCategory from "../Pages/Home/AddCategory/AddCategory";
 import AllCar from "../Pages/AllCar/AllCar";
+import MyToys from "../Pages/MyToys/MyToys";
 
   const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ import AllCar from "../Pages/AllCar/AllCar";
       path:'all-car',
       element:<AllCar></AllCar>,
       loader: ()=>fetch('http://localhost:5000/new-collections')
+    },
+    {
+      path:'my-toys',
+      element:<MyToys></MyToys>,
     }
     
   ]);

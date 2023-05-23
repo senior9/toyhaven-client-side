@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../../../Shared/Navbar/Navbar";
 import Footer from "../../../Shared/Footer/Footer";
 import "./AddCategory.css";
 import Swal from 'sweetalert2'
+import { authProvider } from "../../../AuthProvider/AuthProvider";
 
 const AddCategory = () => {
+  const {user} =useContext(authProvider);
+  console.log(user)
+  
     const handleAddToy=(event)=>{
         event.preventDefault();
         const form = event.target;
 
         const seller = form.seller.value;
+        
         const picture = form.picture.value;
         const toy_name = form.toy_name.value;
         const subcategory = form.subcategory.value;
@@ -17,8 +22,8 @@ const AddCategory = () => {
         const price = form.price.value;
         const rating = form.rating.value;
         const description = form.description.value;
-
-        const newCarInfo = {seller,picture,toy_name,subcategory,available_quantity,price,rating,description};
+        let email = user?.email;
+        const newCarInfo = {seller,picture,toy_name,subcategory,available_quantity,price,rating,description,email};
         console.log(newCarInfo);
 
         fetch('http://localhost:5000/new-collections',{
@@ -64,6 +69,7 @@ const AddCategory = () => {
                 name="email"
                 placeholder="Seller email"
                 className="input input-bordered custom-bg"
+                defaultValue={user.email}
                 readOnly
                 required
               />
