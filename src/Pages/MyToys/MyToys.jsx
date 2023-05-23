@@ -41,7 +41,7 @@ const MyToys = () => {
           });
       }
     });
-    
+} 
 
     // Update Toys
   const handleUpdateToys = (id) => {
@@ -65,12 +65,15 @@ const MyToys = () => {
           .then((data) => {
             console.log(data);
             if (data.modifiedCount > 0) {
-            //   const remainingToys = myToys.filter((t) => t._id !== id);
-            //   setMyToys(remainingToys);
+              const remainingToys = myToys.filter((t) => t._id !== id);
+              const upadtedToys=myToys.find(t => t._id === id);
+              const newToys = [upadtedToys,...remainingToys];
+              setMyToys(newToys)
             }
           });
       }
     });
+
 
 
   };
@@ -101,6 +104,7 @@ const MyToys = () => {
                   key={singleToysDetail._id}
                   singleToysDetail={singleToysDetail}
                   handleDelete={handleDelete}
+                  handleUpdateToys={handleUpdateToys}
                 ></MyCollectionsToys>
               ))}
             </tbody>

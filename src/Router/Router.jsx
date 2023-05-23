@@ -13,6 +13,7 @@ import AddCategory from "../Pages/Home/AddCategory/AddCategory";
 import AllCar from "../Pages/AllCar/AllCar";
 import MyToys from "../Pages/MyToys/MyToys";
 import Private from "../Shared/Private/Private";
+import UpdatedToys from "../Pages/MyToys/UpdatedToys/UpdatedToys";
 
   const router = createBrowserRouter([
     {
@@ -58,7 +59,12 @@ import Private from "../Shared/Private/Private";
     {
       path:'my-toys',
       element:<Private><MyToys></MyToys></Private>,
+      
+    },
+    {
+      path:'my-toys/:id',
+      element:<UpdatedToys></UpdatedToys>,
+      loader:({params})=>fetch(`http://localhost:5000/my-collections/${params.id}`)
     }
-    
   ]);
   export default router
