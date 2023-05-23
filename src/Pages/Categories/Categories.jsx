@@ -20,7 +20,7 @@ const Categories = () => {
       });
   }, []);
 
-  console.log(toys);
+  // console.log(toys);
   return (
     <div className="mt-5 mb-5 custom-navbar container mx-auto ">
       <div className="">

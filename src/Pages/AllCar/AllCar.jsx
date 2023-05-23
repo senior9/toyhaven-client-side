@@ -6,7 +6,7 @@ import "./AllCar.css";
 
 const AllCar = () => {
   const addedCar = useLoaderData();
-  console.log(addedCar);
+  // console.log(addedCar);
 
   return (
     <div>
@@ -23,8 +23,8 @@ const AllCar = () => {
             <thead>
               <tr>
                 <th className="custom-bg text-center">Avatar</th>
-                <th className="custom-bg text-center">Name</th>
-                <th className="custom-bg text-center">Seller</th>
+                <th className="custom-bg text-center">Car Name</th>
+                <th className="custom-bg text-center">User/Seller Name</th>
                 <th className="custom-bg text-center">Avilable Quantity</th>
                 <th className="custom-bg text-center">Price</th>
                 <th className="custom-bg text-center">Subcategory</th>

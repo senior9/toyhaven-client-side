@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Navbar from "../../../Shared/Navbar/Navbar";
 import Footer from "../../../Shared/Footer/Footer";
 import "./AddCategory.css";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { authProvider } from "../../../AuthProvider/AuthProvider";
 
 const AddCategory = () => {
@@ -77,7 +77,7 @@ const AddCategory = () => {
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-yellow-50 text-2xl font-bold">
-                  Seller Name
+                  User/Seller Name
                 </span>
               </label>
               <input
@@ -85,6 +85,7 @@ const AddCategory = () => {
                 name="seller"
                 placeholder="Enter seller name"
                 className="input input-bordered custom-bg"
+                defaultValue={user.displayName}
                 required
               />
             </div>

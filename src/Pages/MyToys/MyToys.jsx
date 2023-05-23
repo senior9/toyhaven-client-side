@@ -1,23 +1,79 @@
 import React, { useContext, useEffect, useState } from "react";
 import { authProvider } from "../../AuthProvider/AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, json, useNavigate } from "react-router-dom";
 import Footer from "../../Shared/Footer/Footer";
 import Navbar from "../../Shared/Navbar/Navbar";
+import Swal from "sweetalert2";
+import MyCollectionsToys from "../MyCollectionsToys/MyCollectionsToys";
 
 const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   const { user } = useContext(authProvider);
-  const navigate = useNavigate();
-  const handleNavigate = () => {
-    navigate("/my-toys");
-  };
 
   const url = `http://localhost:5000/my-collections?email=${user.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMyToys(data));
-  }, []);
+  }, [url]);
+
+//   Delete Toys
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This action cannot be undone",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/my-collections/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              const remainingToys = myToys.filter((t) => t._id !== id);
+              setMyToys(remainingToys);
+            }
+          });
+      }
+    });
+    
+
+    // Update Toys
+  const handleUpdateToys = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This action cannot be undone",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/my-collections/${id}`, {
+          method: "PATCH",
+          headers:{
+            'content-type': "application/json"
+          },
+          body:JSON.stringify({status:"confirm"})
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.modifiedCount > 0) {
+            //   const remainingToys = myToys.filter((t) => t._id !== id);
+            //   setMyToys(remainingToys);
+            }
+          });
+      }
+    });
+
+
+  };
 
   return (
     <div>
@@ -28,8 +84,8 @@ const MyToys = () => {
             <thead>
               <tr>
                 <th className="custom-bg text-center">Avatar</th>
-                <th className="custom-bg text-center">Name</th>
-                <th className="custom-bg text-center">Seller</th>
+                <th className="custom-bg text-center">Car Name</th>
+                <th className="custom-bg text-center">User/Seller</th>
                 <th className="custom-bg text-center">Avilable Quantity</th>
                 <th className="custom-bg text-center">Price</th>
                 <th className="custom-bg text-center">Subcategory</th>
@@ -41,75 +97,11 @@ const MyToys = () => {
 
             <tbody className="custom-bg">
               {myToys.map((singleToysDetail) => (
-                <tr key={singleToysDetail._id} className="custom-bg">
-                  <th className="custom-bg">
-                    <div className="flex items-center space-x-3 custom-bg">
-                      <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12 custom-bg">
-                          <img
-                            src={singleToysDetail.picture}
-                            alt="Avatar Tailwind CSS Component"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </th>
-                  <th className="custom-bg">
-                    <div className="font-bold text-center">
-                      {singleToysDetail.toy_name}
-                    </div>
-                  </th>
-                  <th className="custom-bg text-center">
-                    {singleToysDetail.seller}
-                  </th>
-                  <th className="custom-bg text-center">
-                    {singleToysDetail.available_quantity}
-                  </th>
-                  <th className="custom-bg text-center">
-                    <button className="btn btn-ghost btn-xs ">
-                      {singleToysDetail.price}
-                    </button>
-                  </th>
-                  <th className="custom-bg text-center">
-                    <button className="btn btn-ghost btn-xs">
-                      {singleToysDetail.subcategory}
-                    </button>
-                  </th>
-                  <th className="custom-bg text-center">
-                    <Link to={`/category/${singleToysDetail._id}`}>
-                      <button className="btn btn-ghost btn-xs">
-                        View Details
-                      </button>
-                    </Link>
-                  </th>
-                  <th className="custom-bg text-center">
-                    <Link to="">
-                      <button className="btn custom-btn btn-info btn-xs">
-                        Update
-                      </button>
-                    </Link>
-                  </th>
-                  <th className="custom-bg text-center">
-                    <Link to="">
-                      <button className="btn btn-square custom-btn btn-danger">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
-                      </button>
-                    </Link>
-                  </th>
-                </tr>
+                <MyCollectionsToys
+                  key={singleToysDetail._id}
+                  singleToysDetail={singleToysDetail}
+                  handleDelete={handleDelete}
+                ></MyCollectionsToys>
               ))}
             </tbody>
           </table>

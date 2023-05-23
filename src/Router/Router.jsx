@@ -12,6 +12,7 @@ import ToyDetails from "../Pages/Home/ToyDetails/ToyDetails";
 import AddCategory from "../Pages/Home/AddCategory/AddCategory";
 import AllCar from "../Pages/AllCar/AllCar";
 import MyToys from "../Pages/MyToys/MyToys";
+import Private from "../Shared/Private/Private";
 
   const router = createBrowserRouter([
     {
@@ -40,23 +41,23 @@ import MyToys from "../Pages/MyToys/MyToys";
     },
     {
         path:'category/:id',
-        element:<ToyDetails></ToyDetails>,
+        element:<Private><ToyDetails></ToyDetails></Private>,
         loader: ({params})=>fetch(`http://localhost:5000/collections/${params.id}`)
       
     },
     {
       path:'add-toy',
-      element:<AddCategory></AddCategory>,
+      element:<Private><AddCategory></AddCategory></Private>,
       
     },
     {
       path:'all-car',
-      element:<AllCar></AllCar>,
+      element:<Private><AllCar></AllCar></Private>,
       loader: ()=>fetch('http://localhost:5000/new-collections')
     },
     {
       path:'my-toys',
-      element:<MyToys></MyToys>,
+      element:<Private><MyToys></MyToys></Private>,
     }
     
   ]);

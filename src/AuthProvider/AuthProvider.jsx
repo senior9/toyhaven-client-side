@@ -72,11 +72,11 @@ const AuthProvider = ({children}) => {
   useEffect(() => {
     const unchangedState = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log(currentUser);
+      // console.log(currentUser);
       if (currentUser) {
         setDisplayName(currentUser.displayName);
         setPhotoUrl(currentUser.photoURL);
-        console.log(currentUser.photoURL);
+        // console.log(currentUser.photoURL);
       } else {
         setDisplayName('');
         setPhotoUrl('');
