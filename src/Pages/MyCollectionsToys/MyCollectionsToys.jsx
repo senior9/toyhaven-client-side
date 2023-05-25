@@ -39,11 +39,11 @@ const MyCollectionsToys = ({ singleToysDetail, handleDelete }) => {
         </th>
         <th className="custom-bg text-center">
           
-            <button  className="btn btn-ghost btn-xs">View Details</button>
+            <Link to={`/car-details/${singleToysDetail._id}`}><button  className="btn btn-ghost btn-xs">View Details</button></Link>
          
         </th>
         <th className="custom-bg text-center">
-          <Link to={`/my-toys/${singleToysDetail._id}`}>
+          <Link to={`/update-toys/${singleToysDetail._id}`}>
             <button  className="btn custom-btn btn-info btn-xs">Edit</button>
           </Link>
         </th>

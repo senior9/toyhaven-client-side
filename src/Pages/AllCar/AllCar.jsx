@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../../Shared/Navbar/Navbar";
 import Footer from "../../Shared/Footer/Footer";
@@ -7,6 +7,8 @@ import "./AllCar.css";
 const AllCar = () => {
   const addedCar = useLoaderData();
   // console.log(addedCar);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [limit, setLimit] = useState(20);
 
   return (
     <div>
@@ -17,7 +19,26 @@ const AllCar = () => {
         </h1>
 
         <div className="overflow-x-auto container mx-auto w-full">
-          <table className="table w-full custom-table" 
+
+        <div className="flex items-center justify-center custom-bg  space-x-4 mt-10 pb-5 ">
+            <input
+              type="text"
+              placeholder="Search by Car name"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="input input-bordered custom-backgtound text-xl"
+            />
+            <select
+              value={limit}
+              onChange={(e) => setLimit(Number(e.target.value))}
+              className="select select-bordered custom-backgtound text-lg"
+            >
+              <option className="text-white custom-backgtound" value={10}>10</option>
+              <option className="text-white custom-backgtound" value={20}>20</option>
+            </select>
+          </div>
+
+          <table className="table w-full custom-table " 
            
           >
             <thead>
@@ -33,7 +54,14 @@ const AllCar = () => {
             </thead>
 
             <tbody className="custom-bg">
-              {addedCar.map((singleCar) => (
+        
+               {addedCar
+                .filter((singleCar) =>
+                  singleCar.toy_name.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+                .slice(0, limit)
+              
+              .map((singleCar) => (
                 <tr key={singleCar._id} className="custom-bg">
                   <th className="custom-bg">
                     <div className="flex items-center space-x-3 custom-bg">
@@ -62,7 +90,7 @@ const AllCar = () => {
                     <button className="btn btn-ghost btn-xs">{singleCar.subcategory}</button>
                   </th>
                   <th className="custom-bg text-center">
-                    <Link to={`/category/${singleCar._id}`}><button  className="btn btn-ghost btn-xs">View Details</button></Link>
+                    <Link to={`/car-details/${singleCar._id}`}><button  className="btn btn-ghost btn-xs">View Details</button></Link>
                   </th>
                 </tr>
               ))}

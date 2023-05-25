@@ -3,14 +3,15 @@ import { useLoaderData } from 'react-router-dom';
 import Navbar from '../../../Shared/Navbar/Navbar';
 import Footer from '../../../Shared/Footer/Footer';
 import { authProvider } from '../../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const UpdatedToys = () => {
-    const data = useLoaderData();
+    const carData = useLoaderData();
     const {user,loading}= useContext(authProvider)
-    console.log(data._id)
-    if(user){
-        loading
-    }
+    console.log(carData)
+    // if(user){
+    //     loading
+    // }
     const handleUpdateToy=(event)=>{
         event.preventDefault();
         const form = event.target;
@@ -19,16 +20,17 @@ const UpdatedToys = () => {
         const price = form.price.value;
         const description = form.description.value;
         const updateCarInfo = {available_quantity,price,description};
-        // console.log(newCarInfo);
-        fetch(`http://localhost:5000/my-collections/${data._id}`,{
+        console.log(updateCarInfo);
+        fetch(`http://localhost:5000/my-collections/${carData._id}`,{
           method:'PUT',
                       headers:{
                           'Content-Type':'application/json'
                       },
                       body:JSON.stringify(updateCarInfo)
       })
-      .then(res=>res.json())
-      .then(data =>{
+      .then((res)=>res.json())
+      .then((data) =>
+        {
           console.log(data)
           if(data.modifiedCount>0){
               Swal.fire({
@@ -38,7 +40,8 @@ const UpdatedToys = () => {
                   confirmButtonText: 'Come Down'
                 })
           }
-      })
+      }
+      )
 
     }
 
@@ -67,6 +70,7 @@ const UpdatedToys = () => {
                 type="text"
                 name="available_quantity"
                 placeholder="quantity"
+                defaultValue={carData?.available_quantity}
                 className="input input-bordered custom-bg"
                 required
               />
@@ -83,6 +87,7 @@ const UpdatedToys = () => {
                 placeholder="price"
                 className="input input-bordered custom-bg"
                 required
+                defaultValue={carData?.price}
               />
             </div>
             
@@ -93,6 +98,7 @@ const UpdatedToys = () => {
                 </span>
               </label>
               <textarea
+              defaultValue={carData?.description}
                 placeholder="Bio"
                 name="description"
                 className="textarea textarea-bordered textarea-xs w-full max-w-xs custom-bg"
@@ -100,10 +106,11 @@ const UpdatedToys = () => {
             </div>
            
           </div>
-          <div>
-                <input type="submit" value="Update" className='btn custom-btn btn-danger' />
-            </div>
+       
+                
+            
         </div>
+        <input type="submit" value="Update Toy" className='btn custom-btn btn-danger' />
       </form>
             <Footer></Footer>
         </div>

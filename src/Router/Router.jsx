@@ -16,6 +16,7 @@ import Private from "../Shared/Private/Private";
 import UpdatedToys from "../Pages/MyToys/UpdatedToys/UpdatedToys";
 import Blog from "../Pages/Blog/Blog";
 import NotFound from "../Pages/NotFound/NotFound";
+import SimgleToyDetails from "../Pages/Home/ToyDetails/SingleToyDetails/SimgleToyDetails";
 
   const router = createBrowserRouter([
     {
@@ -55,8 +56,14 @@ import NotFound from "../Pages/NotFound/NotFound";
     },
     {
       path:'all-car',
-      element:<Private><AllCar></AllCar></Private>,
+      element:<AllCar></AllCar>,
       loader: ()=>fetch('http://localhost:5000/new-collections')
+    },
+    {
+      path:'car-details/:id',
+      element:<Private><SimgleToyDetails></SimgleToyDetails></Private>,
+      loader: ({params})=>fetch(`http://localhost:5000/my-collections/${params.id}`)
+
     },
     {
       path:'my-toys',
@@ -65,10 +72,11 @@ import NotFound from "../Pages/NotFound/NotFound";
       
     },
     {
-      path:'my-toys/:id',
+      path:'update-toys/:id',
       element:<Private><UpdatedToys></UpdatedToys></Private>,
       loader:({params})=>fetch(`http://localhost:5000/my-collections/${params.id}`)
     },
+
     {
       path:'blog',
       element:<Blog></Blog>
