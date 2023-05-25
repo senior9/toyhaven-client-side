@@ -4,6 +4,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "./Categories.css";
 import SingleToy from "../SingleToys/SingleToy";
+import Aos from "aos";
 
 const Categories = () => {
   // const toys = useLoaderData();
@@ -19,19 +20,30 @@ const Categories = () => {
         console.log("Error fetching data:", error);
       });
   }, []);
-
+  useEffect(() => {
+    Aos.init(); // Initialize AOS library
+  }, []);
+  
   // console.log(toys);
   return (
-    <div className="mt-5 mb-5 custom-navbar container mx-auto ">
+    <div className="mt-5 mb-5 custom-navbar container mx-auto  "
+    
+    data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000"
+    >
       <div className="">
         <Tabs>
           <TabList className="text-white tablist">
-            <Tab onClick={() => setActiveTab(0)}>Racing Cars</Tab>
+            <Tab 
+             onClick={() => setActiveTab(0)}>Racing Cars</Tab>
             <Tab onClick={() => setActiveTab(1)}>Sports Cars</Tab>
             <Tab onClick={() => setActiveTab(2)}>Classic Cars</Tab>
           </TabList>
 
-          <TabPanel>
+          <TabPanel 
+           
+          >
            
               
               <div className='container mx-auto custom-bg mb-2'>

@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Gallery.css";
 import galleryOne from "../../../assets/Gallery/gallery-1.png"
 import galleryTwo from "../../../assets/Gallery/gallery-2.png"
 import galleryThree from "../../../assets/Gallery/gallery-3.png"
 import galleryFour from "../../../assets/Gallery/gallery-4.png"
 import galleryFive from "../../../assets/Gallery/gallery-5.png"
-import gallerySix from "../../../assets/Gallery/gallery-6.png"
+import gallerySix from "../../../assets/Gallery/gallery-6.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Gallery = () => {
+  useEffect(() => {
+    AOS.init(); // Initialize AOS library
+  }, []);
   return (
-    <div className="gallery-backgorund container mx-auto mt-3 space-y-3 pb-5">
+    <div className="gallery-backgorund container mx-auto mt-3 space-y-3 pb-5" 
+    data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500"
+    >
       <h1 className="text-5xl  text-center text-white pt-5 ">
         A photo Gallery of the Toys
       </h1>
@@ -17,33 +26,33 @@ const Gallery = () => {
         Discover Our Captivating Gallery of Imagination and Wonder, Where Every
         Toy Tells a Story.
       </p>
-      <div className="grid grid-cols-3 gap-5  m-32 ">
-        <div className="avatar">
+      <div className="grid grid-cols-3 gap-5  m-32  " >
+        <div className="avatar " data-aos="fade-up">
           <div className="w-100 rounded">
             <img className="custom-img" src={galleryOne} />
           </div>
         </div>
-        <div className="avatar">
+        <div className="avatar" data-aos="fade-up">
           <div className="w-50 rounded">
             <img src={galleryTwo} />
           </div>
         </div>
-        <div className="avatar">
+        <div className="avatar" data-aos="fade-up">
           <div className="w-100 rounded">
             <img src={galleryThree}/>
           </div>
         </div>
-        <div className="avatar">
+        <div className="avatar" data-aos="fade-up">
           <div className="w-100 rounded">
             <img src={galleryFour} />
           </div>
         </div>
-        <div className="avatar">
+        <div className="avatar" data-aos="fade-up">
           <div className="w-100 rounded">
             <img src={galleryFive} />
           </div>
         </div>
-        <div className="avatar">
+        <div className="avatar" data-aos="fade-up">
           <div className="w-100 rounded">
             <img src={gallerySix} />
           </div>
