@@ -8,17 +8,32 @@ import MyCollectionsToys from "../MyCollectionsToys/MyCollectionsToys";
 
 const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
+  const [sortOrder, setSortOrder] = useState("asc");
   const { user } = useContext(authProvider);
 
+  const handleSort = (order) => {
+    setSortOrder(order);
+  };
+  // const url = `http://localhost:5000/my-collections?email=${user.email}`;
+  // useEffect(() => {
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((data) => setMyToys(data));
+  // }, [url]);
 
-  const url = `http://localhost:5000/my-collections?email=${user.email}`;
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setMyToys(data));
-  }, [url]);
+    const fetchMyToys = async () => {
+      const response = await fetch(
+        `http://localhost:5000/my-collections?email=${user.email}&sortOrder=${sortOrder}`
+      );
+      const data = await response.json();
+      setMyToys(data);
+    };
 
-//   Delete Toys
+    fetchMyToys();
+  }, [user.email, sortOrder]);
+
+  //   Delete Toys
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -42,15 +57,26 @@ const MyToys = () => {
           });
       }
     });
-} 
-
-   
+  };
 
   return (
     <div>
       <Navbar></Navbar>
       <div className="custom-bg">
         <div className="overflow-x-auto container mx-auto w-full">
+          <div  className="flex items-center justify-center gap-16 mt-10 pb-5">
+          <div>
+          <button className="custom-btn btn btn-error" onClick={() => handleSort("asc")}>
+             Price (Ascending)
+          </button>
+          </div>
+          <div>
+          <button className="btn btn-error custom-btn" onClick={() => handleSort("desc")}>
+          Price (Descending)
+          </button>
+          </div>
+          </div>
+
           <table className="table w-full custom-table">
             <thead>
               <tr>
@@ -72,7 +98,6 @@ const MyToys = () => {
                   key={singleToysDetail._id}
                   singleToysDetail={singleToysDetail}
                   handleDelete={handleDelete}
-                 
                 ></MyCollectionsToys>
               ))}
             </tbody>

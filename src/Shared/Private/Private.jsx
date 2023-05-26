@@ -6,7 +6,9 @@ const Private = ({children}) => {
     const {loading,user} = useContext(authProvider);
    if (loading) {
     return (
-        <progress className="progress w-56"></progress>
+        <div className= 'mt-28 items-center flex justify-center'>
+          <progress className="progress w-56 "></progress>
+        </div>
     );
   }
   if (user) {
