@@ -26,7 +26,7 @@ import SimgleToyDetails from "../Pages/Home/ToyDetails/SingleToyDetails/SimgleTo
         {
           path:'category',
           element:<Categories></Categories>,
-          loader: ()=>fetch('http://localhost:5000/collections')
+          loader: ()=>fetch('https://toy-haven-senior9.vercel.app/collections')
         },
         
       ]
@@ -46,7 +46,7 @@ import SimgleToyDetails from "../Pages/Home/ToyDetails/SingleToyDetails/SimgleTo
     {
         path:'category/:id',
         element:<Private><ToyDetails></ToyDetails></Private>,
-        loader: ({params})=>fetch(`http://localhost:5000/collections/${params.id}`)
+        loader: ({params})=>fetch(`https://toy-haven-senior9.vercel.app/collections/${params.id}`)
       
     },
     {
@@ -57,12 +57,12 @@ import SimgleToyDetails from "../Pages/Home/ToyDetails/SingleToyDetails/SimgleTo
     {
       path:'all-car',
       element:<AllCar></AllCar>,
-      loader: ()=>fetch('http://localhost:5000/new-collections')
+      loader: ()=>fetch('https://toy-haven-senior9.vercel.app/new-collections')
     },
     {
       path:'car-details/:id',
       element:<Private><SimgleToyDetails></SimgleToyDetails></Private>,
-      loader: ({params})=>fetch(`http://localhost:5000/my-collections/${params.id}`)
+      loader: ({params})=>fetch(`https://toy-haven-senior9.vercel.app/my-collections/${params.id}`)
 
     },
     {
@@ -74,7 +74,7 @@ import SimgleToyDetails from "../Pages/Home/ToyDetails/SingleToyDetails/SimgleTo
     {
       path:'update-toys/:id',
       element:<Private><UpdatedToys></UpdatedToys></Private>,
-      loader:({params})=>fetch(`http://localhost:5000/my-collections/${params.id}`)
+      loader:({params})=>fetch(`https://toy-haven-senior9.vercel.app/my-collections/${params.id}`)
     },
 
     {

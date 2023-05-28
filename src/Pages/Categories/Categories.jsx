@@ -13,7 +13,7 @@ const Categories = () => {
 
   useEffect(() => {
     // Fetch data and set the toys state
-    fetch("http://localhost:5000/collections")
+    fetch("https://toy-haven-senior9.vercel.app/collections")
       .then((res) => res.json())
       .then((data) => setToys(data))
       .catch((error) => {

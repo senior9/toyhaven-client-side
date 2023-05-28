@@ -29,7 +29,7 @@ const AddCategory = () => {
         const newCarInfo = {seller,picture,toy_name,subcategory,available_quantity,price,rating,description,email};
         console.log(newCarInfo);
 
-        fetch('http://localhost:5000/new-collections',{
+        fetch('https://toy-haven-senior9.vercel.app/new-collections',{
             method:'POST',
                         headers:{
                             'Content-Type':'application/json'

@@ -27,7 +27,7 @@ const MyToys = () => {
   useEffect(() => {
     const fetchMyToys = async () => {
       const response = await fetch(
-        `http://localhost:5000/my-collections?email=${user.email}&sortOrder=${sortOrder}`
+        `https://toy-haven-senior9.vercel.app/my-collections?email=${user.email}&sortOrder=${sortOrder}`
       );
       const data = await response.json();
       setMyToys(data);
@@ -47,7 +47,7 @@ const MyToys = () => {
       cancelButtonText: "No",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/my-collections/${id}`, {
+        fetch(`https://toy-haven-senior9.vercel.app/my-collections/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
