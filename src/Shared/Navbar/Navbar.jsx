@@ -26,7 +26,7 @@ const Navbar = () => {
   
 
   return (
-    <div className="navbar custom-navbar flex flex-wrap items-center justify-between py-2 px-4 lg:px-10 w-full lg:w-auto">
+    <div className="navbar try-navbar flex flex-wrap items-center justify-between py-2 md:px-4  w-full lg:w-auto">
   <div className="flex items-center">
     <Link to="/" className="btn btn-ghost text-white normal-case text-xl">
       <img src={logo} alt="" />
@@ -66,14 +66,14 @@ const Navbar = () => {
             to="add-toy"
             className="btn btn-ghost text-white normal-case text-sm"
           >
-            Add A Toy
+            Add A Car
           </Link>
           <Link
             to="my-toys"
             onClick={handleNavigate}
             className="btn btn-ghost text-white normal-case text-sm"
           >
-            My Toy
+            My Car
           </Link>
           <Link
             onClick={handleSignOut}

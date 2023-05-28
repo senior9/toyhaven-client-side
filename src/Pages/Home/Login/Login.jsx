@@ -2,12 +2,14 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import "./Login.css"
 import { authProvider } from '../../../AuthProvider/AuthProvider';
+import useDynamicTitle from '../../../Hooks/useDynamicTitle/useDynamicTitle';
 
 const Login = () => {
     const {signIn} = useContext(authProvider);
     const [error,setError] = useState(null) ;
     const navigate =useNavigate();
     let location = useLocation();
+    useDynamicTitle("TOYHAVEN | Login");
   
     let from = location.state?.from?.pathname || "/";
     console.log(from);

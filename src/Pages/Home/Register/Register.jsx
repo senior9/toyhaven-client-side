@@ -3,6 +3,7 @@ import Navbar from "../../../Shared/Navbar/Navbar";
 import Footer from "../../../Shared/Footer/Footer";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authProvider } from "../../../AuthProvider/AuthProvider";
+import useDynamicTitle from "../../../Hooks/useDynamicTitle/useDynamicTitle";
 
 const Register = () => {
   const { crateUserInfo, updateProfileUser, googleSignInMethod } =
@@ -10,6 +11,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   let location = useLocation();
+  useDynamicTitle("TOYHAVEN | Register");
 
   let from = location.state?.from?.pathname || "/";
   console.log(from);

@@ -5,11 +5,13 @@ import "./AddCategory.css";
 import Swal from 'sweetalert2';
 import { authProvider } from "../../../AuthProvider/AuthProvider";
 import Reviews from "../Reviews/Reviews";
+import useDynamicTitle from "../../../Hooks/useDynamicTitle/useDynamicTitle";
 
 const AddCategory = () => {
   const {user} =useContext(authProvider);
-  console.log(user)
-  
+
+  useDynamicTitle("TOYHAVEN | Add-car-info");
+
     const handleAddToy=(event)=>{
         event.preventDefault();
         const form = event.target;

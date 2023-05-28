@@ -3,12 +3,15 @@ import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../../Shared/Navbar/Navbar";
 import Footer from "../../Shared/Footer/Footer";
 import "./AllCar.css";
+import useDynamicTitle from "../../Hooks/useDynamicTitle/useDynamicTitle";
 
 const AllCar = () => {
   const addedCar = useLoaderData();
   // console.log(addedCar);
   const [searchQuery, setSearchQuery] = useState("");
   const [limit, setLimit] = useState(20);
+  useDynamicTitle("TOYHAVEN | All-car");
+
 
   return (
     <div>

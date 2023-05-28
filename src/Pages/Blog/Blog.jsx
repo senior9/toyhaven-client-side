@@ -2,8 +2,11 @@ import React from "react";
 import "./Blog.css";
 import Navbar from "../../Shared/Navbar/Navbar";
 import Footer from "../../Shared/Footer/Footer";
+import useDynamicTitle from "../../Hooks/useDynamicTitle/useDynamicTitle";
 
 const Blog = () => {
+  useDynamicTitle("TOYHAVEN | Blog");
+
   return (
     <>
       <Navbar></Navbar>

@@ -1,15 +1,12 @@
-.custom-navbar{
+.try-navbar{
     background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
-}
-
-.custom-navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
   .flex-1 {
     flex: 1;
   }

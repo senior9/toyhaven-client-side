@@ -5,11 +5,14 @@ import Footer from "../../Shared/Footer/Footer";
 import Navbar from "../../Shared/Navbar/Navbar";
 import Swal from "sweetalert2";
 import MyCollectionsToys from "../MyCollectionsToys/MyCollectionsToys";
+import useDynamicTitle from "../../Hooks/useDynamicTitle/useDynamicTitle";
 
 const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   const [sortOrder, setSortOrder] = useState("asc");
   const { user } = useContext(authProvider);
+  useDynamicTitle("TOYHAVEN | My-car");
+
 
   const handleSort = (order) => {
     setSortOrder(order);
