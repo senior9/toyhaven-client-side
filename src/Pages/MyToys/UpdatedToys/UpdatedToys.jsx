@@ -21,7 +21,7 @@ const UpdatedToys = () => {
         const description = form.description.value;
         const updateCarInfo = {available_quantity,price,description};
         console.log(updateCarInfo);
-        fetch(`http://localhost:5000/my-collections/${carData._id}`,{
+        fetch(`https://toy-haven-senior9.vercel.app/my-collections/${carData._id}`,{
           method:'PUT',
                       headers:{
                           'Content-Type':'application/json'
