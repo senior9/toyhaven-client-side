@@ -7,14 +7,14 @@ const Blog = () => {
   return (
     <>
       <Navbar></Navbar>
-      <div className="custom-bg">
-        <div class="wrapper">
-          <h1>Question 1</h1>
-          <p>What is an access token and refresh token? </p>
+      <div className="custom-bg ">
+        <div class="wrapper custom-bg pt-10">
+          <h1>Question </h1>
+          
           <div class="item">
             <input id="one" type="checkbox" />
             <label for="one">?</label>
-            <h2>Question One</h2>
+            <h2>What is an access token and refresh token?</h2>
             <div class="description">
               <p>
                 An access token is a credential that is used to authenticate and
@@ -31,7 +31,7 @@ const Blog = () => {
             </div>
           </div>
           <div class="item">
-            <p>Compare SQL and NoSQL databases?</p>
+            <h2>Compare SQL and NoSQL databases?</h2>
             <input id="two" type="checkbox" />
             <label for="two">?</label>
 
@@ -54,7 +54,7 @@ const Blog = () => {
             </div>
           </div>
           <div class="item">
-            <p>What is express js? What is Nest JS?</p>
+            <h2>What is express js? What is Nest JS?</h2>
             <input id="three" type="checkbox" />
             <label for="three">?</label>
 
@@ -78,7 +78,7 @@ const Blog = () => {
             </div>
           </div>
           <div class="item">
-            <p>What is MongoDB aggregate and how does it work</p>
+            <h2>What is MongoDB aggregate and how does it work</h2>
             <input id="four" type="checkbox" />
             <label for="four">?</label>
 

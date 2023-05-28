@@ -4,6 +4,7 @@ import Footer from "../../../Shared/Footer/Footer";
 import "./AddCategory.css";
 import Swal from 'sweetalert2';
 import { authProvider } from "../../../AuthProvider/AuthProvider";
+import Reviews from "../Reviews/Reviews";
 
 const AddCategory = () => {
   const {user} =useContext(authProvider);
@@ -192,6 +193,7 @@ const AddCategory = () => {
             </div>
         </div>
       </form>
+      
       <Footer></Footer>
     </div>
   );

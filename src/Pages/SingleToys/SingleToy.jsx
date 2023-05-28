@@ -8,7 +8,7 @@ const SingleToy = ({ SingleToy }) => {
   return (
     <div className="">
       
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card  w-full md:w-96 bg-base-100 shadow-xl">
         <figure>
           <img className="custom-image"
             src={picture}

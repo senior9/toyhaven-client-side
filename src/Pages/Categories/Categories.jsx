@@ -26,13 +26,17 @@ const Categories = () => {
   
   // console.log(toys);
   return (
-    <div className="mt-5 mb-5 custom-navbar container mx-auto  "
+    <>
+    <div className="container mx-auto">
+      <h1 className="text-5xl font-bold text-gray-400">Top Trending Category</h1>
+    </div>
+    <div className="mt-5 mb-5 custom-bg pb-10 pt-10 mx-auto  "
     
     data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="2000"
     >
-      <div className="">
+      <div className="container mx-auto">
         <Tabs>
           <TabList className="text-white tablist">
             <Tab 
@@ -46,8 +50,8 @@ const Categories = () => {
           >
            
               
-              <div className='container mx-auto custom-bg mb-2'>
-            <div className='space-y-4 grid grid-cols-3 mx-12 items-end justify-items-center  py-8 justify-center gap-x-2 '>
+              <div className='container mx-auto  mb-2'>
+            <div className='space-y-4 md:grid md:grid-cols-3 mx-12 items-end justify-items-center  py-8 justify-center gap-x-2 '>
             {toys
               .filter((toy) => toy.subcategory_id === 1)
               .map((toy) => (
@@ -58,8 +62,8 @@ const Categories = () => {
           </TabPanel>
           <TabPanel>
             
-               <div className='container mx-auto custom-bg mb-2'>
-            <div className='space-y-4 grid grid-cols-3 mx-12 items-end justify-items-center  py-8 justify-center gap-x-2 '>
+               <div className='container mx-auto  mb-2'>
+            <div className='space-y-4 md:grid md:grid-cols-3 mx-12 items-end justify-items-center  py-8 justify-center gap-x-2 '>
             {toys
               .filter((toy) => toy.subcategory_id === 2)
               .map((toy) => (
@@ -70,8 +74,8 @@ const Categories = () => {
           </TabPanel>
           <TabPanel>
             
-               <div className='container mx-auto custom-bg mb-2'>
-            <div className='space-y-4 grid grid-cols-3 mx-12 items-end justify-items-center  py-8 justify-center gap-x-2 '>
+               <div className='container mx-auto  mb-2'>
+            <div className='space-y-4 md:grid md:grid-cols-3 mx-12 items-end justify-items-center  py-8 justify-center gap-x-2 '>
             {toys
               .filter((toy) => toy.subcategory_id === 3)
               .map((toy) => (
@@ -83,6 +87,8 @@ const Categories = () => {
         </Tabs>
       </div>
     </div>
+    
+    </>
   );
 };
 

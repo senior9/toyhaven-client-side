@@ -12,14 +12,14 @@ const Banner = () => {
         <div id="slide1" className="carousel-item relative w-full">
           <img src={caroselOne} className="w-full" />
           <div className="carousel-text space-y-4">
-            <p className="text-orange-100 font-bold text-7xl w-1/3 ">
+            <p className="text-orange-100 font-bold text-7xl w-1/3 hidden md:block ">
               Toys that Spark Smiles and Ignite Endless Adventures
             </p>
             <div className="flex  space-x-3">
-              <button className="btn btn-outline btn-danger custom-button ">
+              <button className="btn btn-outline btn-danger custom-button hidden md:block ">
                 Lets Explore
               </button>
-              <button className="btn btn-outline btn-secondary custom-button ">
+              <button className="btn btn-outline btn-secondary custom-button hidden md:block ">
                 Get Item
               </button>
             </div>
@@ -36,14 +36,14 @@ const Banner = () => {
         <div id="slide2" className="carousel-item relative w-full">
           <img src={caroselTwo} className="w-full" />
           <div className="carousel-text space-y-4">
-            <p className="text-orange-100  font-bold text-7xl w-1/3 ">
+            <p className="text-orange-100  font-bold text-7xl w-1/3 hidden md:block ">
               Toys that Spark Smiles and Ignite Endless Adventures
             </p>
             <div className="flex  space-x-3">
-              <button className="btn btn-outline btn-danger custom-button ">
+              <button className="btn btn-outline btn-danger custom-button hidden md:block">
                 Lets Explore
               </button>
-              <button className="btn btn-outline btn-secondary custom-button ">
+              <button className="btn btn-outline btn-secondary custom-button hidden md:block ">
                 Get Item
               </button>
             </div>
@@ -60,14 +60,14 @@ const Banner = () => {
         <div id="slide3" className="carousel-item relative w-full">
           <img src={caroselThree} className="w-full" />
           <div className="carousel-text space-y-4">
-            <p className="text-green-950 font-bold text-7xl w-1/3 ">
+            <p className="text-green-950 font-bold text-7xl w-1/3 hidden md:block">
               Toys that Spark Smiles and Ignite Endless Adventures
             </p>
             <div className="flex  space-x-3">
-              <button className="btn btn-outline btn-danger custom-button ">
+              <button className="btn btn-outline btn-danger custom-button hidden md:block">
                 Lets Explore
               </button>
-              <button className="btn btn-outline btn-secondary custom-button ">
+              <button className="btn btn-outline btn-secondary custom-button hidden md:block">
                 Get Item
               </button>
             </div>
@@ -84,14 +84,14 @@ const Banner = () => {
         <div id="slide4" className="carousel-item relative w-full">
           <img src={caroselFour} className="w-full" />
           <div className="carousel-text space-y-4">
-            <p className="text-orange-100  font-bold text-7xl w-1/2 ">
+            <p className="text-orange-100  font-bold text-7xl w-1/3 hidden md:block ">
               Toys that Spark Smiles and Ignite Endless Adventures
             </p>
             <div className="flex  space-x-3">
-              <button className="btn btn-outline btn-danger custom-button ">
+              <button className="btn btn-outline btn-danger custom-button hidden md:block">
                 Lets Explore
               </button>
-              <button className="btn btn-outline btn-secondary custom-button ">
+              <button className="btn btn-outline btn-secondary custom-button hidden md:block">
                 Get Item
               </button>
             </div>

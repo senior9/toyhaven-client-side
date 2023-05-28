@@ -1,20 +1,22 @@
 .wrapper{
-    background:#fff;
+    /* background:#fff; */
     width:40em;
     padding:2em 2em 4em;
+    margin-top: 20px;
     margin:0 auto;
     border-radius:1em;
-    box-shadow:0 0 1em rgb(100,100,100);
+    box-shadow:0 0 1em #ffffff;
     color:darkgreen;
   }
   .item{
     border-top:solid 3px darkgreen;
     border-bottom:solid 1px;
     margin-bottom:1em;
-    color:rgb(200,200,200);
+    color:rgb(255, 255, 255);
   }
   .item h2{
     display:inline;
+    color: red;
     
   }
   .item .description{
@@ -22,7 +24,7 @@
     overflow:hidden;
     max-height:0;
     transition:0.5s ease;
-    color:green;
+    color:rgb(255, 255, 255);
   }
   .item input[type=checkbox]{
     display:none;
@@ -47,7 +49,7 @@
     background:green;
   }
   .item input[type=checkbox]:checked ~ h2{
-    color:green;
+    color:red;
   }
   .item input[type=checkbox]:checked ~ .description{
     max-height:200em;

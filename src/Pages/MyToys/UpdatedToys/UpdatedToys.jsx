@@ -54,7 +54,7 @@ const UpdatedToys = () => {
         <div className="">
           <div className="flex justify-center">
             <h1 className="text-5xl text-white font-extrabold">
-              Add Car Information
+              Update Car Information
             </h1>
           </div>
           <div className="grid grid-col-1 md:grid-cols-2 items-center gap-5">
